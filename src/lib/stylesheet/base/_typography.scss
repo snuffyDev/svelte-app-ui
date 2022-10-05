@@ -1,0 +1,63 @@
+@use "./colors";
+@use "sass:color";
+
+p {
+	margin-block: 0.5em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.subheading {
+	color: var(--app-text-base);
+	font-family: "InterVariable", sans-serif;
+
+	line-height: 1.2;
+	font-weight: 500;
+	margin: 0.5em 0 1rem;
+}
+
+h1,
+.h1 {
+	font-size: 2.488rem;
+	font-weight: 700;
+	letter-spacing: -0.03em;
+}
+
+h2,
+.h2 {
+	font-size: 2.174rem;
+}
+
+h3,
+.h3 {
+	font-size: 1.728em;
+}
+
+h4,
+.h4 {
+	font-size: 1.44em;
+}
+
+h5,
+.h5 {
+	font-size: 1.2em;
+}
+
+h6,
+.h6 {
+	font-size: 1em;
+}
+
+a {
+	color: color.adjust(colors.$primary, $saturation: -20%);
+}

@@ -1,0 +1,9 @@
+{
+	"semi": true,
+	"singleQuote": false,
+	"useTabs": true,
+	"svelteSortOrder": "scripts-markup-styles",
+	"singleAttributePerLine": false,
+	"trailingComma": "es5",
+	"svelteIndentScriptAndStyle": true
+}

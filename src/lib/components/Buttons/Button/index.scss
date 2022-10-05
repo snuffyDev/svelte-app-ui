@@ -1,0 +1,158 @@
+@use "../../../stylesheet/base/functions" as *;
+@use "../../../stylesheet/base/mixins" as *;
+@use "../../../stylesheet/base/colors" as *;
+@use "../../../stylesheet/theme" as *;
+
+@use "sass:math";
+@use "sass:color";
+
+$sizes: (default, small, large);
+$fill: (clear, default, outline, solid);
+$widths: (block, full);
+
+$hover: #fff !default;
+
+@function button-type($key, $value) {
+}
+@function str-to-num($string: "", $at) {
+	@if type-of($at) == number {
+		@return #{unquote(str-slice(unquote($string), $at + 1))};
+	} @else {
+		@return calc(unquote($string) + 0);
+	}
+}
+@each $color in $color-names {
+	.fill-solid[color="#{$color}"] {
+		color: map-get($color-map, $color, "contrast");
+	}
+
+	button[color="#{$color}"] {
+		@include pseudo {
+			--c-primary-tint: #{map-get($color-map, $color, "tint")};
+
+			--c-primary-base: #{map-get($color-map, $color, "base")};
+
+			--c-primary-contrast: #{map-get($color-map, $color, "contrast")};
+
+			--c-primary-shade: #{map-get($color-map, $color, "shade")};
+		}
+	}
+}
+
+:where(.fill-clear) {
+	@include pseudo {
+		--bg-color: transparent;
+		--bg-focused: var(--c-primary-base);
+		--bg-hover: #{color.adjust($hover, $alpha: -0.6%)};
+		--bg-active: #{color.adjust($hover, $alpha: -0.7%)};
+		--bg-active-opacity: 0.3;
+		--bg-focus-opacity: 0.1;
+		--text-color: var(--c-primary-shade);
+		--text-active-color: var(--c-primary-tint);
+		--text-hover-color: var(--c-primary-base);
+	}
+}
+:where(.fill-outline) {
+	@include pseudo {
+		--border-style: solid;
+		--border-width: 0.0625rem;
+		--border-radius: 0.5rem;
+		--border-color: var(--c-primary-shade);
+		--bg-active: var(--c-primary-base);
+		--bg-focused: var(--c-primary-base);
+		--bg-color: transparent;
+		--bg-hover: transparent;
+		--bg-focus-opacity: 0.1;
+		--text-color: var(--c-primary-shade);
+		--text-hover-color: var(--c-primary-base);
+		--text-active-color: var(--c-primary-tint);
+	}
+}
+
+:where(.fill-solid) {
+	@include pseudo {
+		--bg-active: var(--c-primary-shade);
+		--bg-focused: var(--c-primary-shade);
+		--bg-hover: var(--c-primary-tint);
+		--bg-color: var(--c-primary-base);
+		--bg-focus-opacity: 1;
+		--bg-active-opacity: 1;
+		--bg-hover-opacity: 0.7;
+	}
+}
+
+:where(.strong) {
+	font-weight: 550;
+}
+
+:where(.expand) {
+	width: 100%;
+}
+
+button {
+	position: relative;
+	border-radius: var(--border-radius, 8px);
+	border-width: var(--border-width, 1px);
+	border-color: var(--border-color, transparent);
+	border-style: var(--border-style, solid);
+	background-color: var(--bg-color, transparent);
+	user-select: none;
+	appearance: none;
+
+	color: var(--text-color, initial);
+	touch-action: manipulation;
+	transition: 240ms 120ms cubic-bezier(0.165, 0.84, 0.44, 1);
+	text-shadow: 0px 0.2px 1px hsla(0, 0%, 0%, 0.2%);
+	transition-property: color, background-color, opacity;
+	font-family: "InterVariable";
+	height: 2.8em;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	margin-left: 2px;
+	margin-right: 2px;
+
+	padding-bottom: 0;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: 0.05em;
+	font-size: 1em;
+	isolation: isolate;
+	letter-spacing: -0.03em;
+	font-weight: 400;
+	cursor: pointer;
+
+	&::after {
+		content: "";
+		position: absolute;
+		user-select: none;
+		inset: 0;
+		transition: inherit;
+		border-radius: inherit;
+		background-clip: text;
+		z-index: -1;
+		background-color: var(--bg-hover, transparent);
+		opacity: 0;
+	}
+	@media (hover: hover) {
+		&:hover:not(:active) {
+			transition-delay: 0ms;
+			color: var(--text-hover-color, initial);
+			&::after {
+				opacity: var(--bg-hover-opacity, 0.1);
+			}
+		}
+	}
+	&:active {
+		color: var(--text-active-color, initial);
+	}
+	&:hover:active::after,
+	&:active::after {
+		transition-duration: 0ms !important;
+		transition-delay: 0ms !important;
+
+		background-color: var(--bg-active, transparent);
+		color: invert(map-get($color-map, "primary", "contrast"));
+		opacity: var(--bg-active-opacity, 0.1);
+		// 	--f-clr-active,
+	}
+}

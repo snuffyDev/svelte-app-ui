@@ -1,0 +1,80 @@
+@use "./functions" as *;
+
+$primary: hsl(218, 100%, 61%) !default;
+$secondary: hsl(199, 100%, 62%) !default;
+$tertiary: hsl(235, 100%, 66%) !default;
+$success: hsl(144, 65%, 50%) !default;
+$warning: hsl(46, 100%, 52%) !default;
+$danger: hsl(352, 81%, 59%) !default;
+$light: hsl(225, 22%, 96%) !default;
+$medium: hsl(228, 5%, 59%) !default;
+$dark: hsl(220, 8%, 15%) !default;
+
+$color-names: (
+	danger,
+	dark,
+	light,
+	medium,
+	primary,
+	secondary,
+	success,
+	tertiary,
+	warning
+);
+
+$color-map: (
+	primary: (
+		base: $primary,
+		contrast: #fff,
+		shade: shade-color($primary),
+		tint: tint-color($primary),
+	),
+	secondary: (
+		base: $secondary,
+		contrast: #fff,
+		shade: shade-color($secondary),
+		tint: tint-color($secondary),
+	),
+	tertiary: (
+		base: $tertiary,
+		contrast: #fff,
+		shade: shade-color($tertiary),
+		tint: tint-color($tertiary),
+	),
+	success: (
+		base: $success,
+		contrast: #fff,
+		shade: shade-color($success),
+		tint: tint-color($success),
+	),
+	warning: (
+		base: $warning,
+		contrast: #000,
+		shade: shade-color($warning),
+		tint: tint-color($warning),
+	),
+	danger: (
+		base: $danger,
+		contrast: #fff,
+		shade: shade-color($danger),
+		tint: tint-color($danger),
+	),
+	light: (
+		base: $light,
+		contrast: #000,
+		shade: shade-color($light),
+		tint: shade-color($light),
+	),
+	medium: (
+		base: $medium,
+		contrast: #fff,
+		shade: shade-color($medium),
+		tint: tint-color($medium),
+	),
+	dark: (
+		base: $dark,
+		contrast: #fff,
+		shade: shade-color($dark),
+		tint: tint-color($dark),
+	),
+);

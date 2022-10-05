@@ -1,0 +1,35 @@
+@use "sass:color";
+@use "./base/colors";
+
+@function get-color($color, $variation) {
+	@return map-get(colors.$color-map, $color, $variation);
+}
+
+$app-dark: #101014;
+$app-light: hsl(0, 0%, 95%);
+
+$dark-theme: (
+	background: (
+		base: $app-dark,
+	),
+	panel: (
+		base: color.adjust($app-light, $alpha: -0.9%),
+	),
+	text: (
+		base: $app-light,
+		secondary: color.adjust($app-light, $alpha: -0.5%),
+	),
+);
+
+$light-theme: (
+	background: (
+		base: $app-light,
+	),
+	panel: (
+		base: color.adjust($app-dark, $alpha: -0.1%),
+	),
+	text: (
+		base: $app-dark,
+		secondary: color.adjust($app-dark, $alpha: -0.5%),
+	),
+);

@@ -1,0 +1,7 @@
+@mixin pseudo {
+	@content;
+	&::before,
+	&::after {
+		@content;
+	}
+}
