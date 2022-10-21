@@ -1,14 +1,14 @@
 @use "./functions" as *;
 
 $primary: hsl(218, 100%, 61%) !default;
-$secondary: hsl(199, 100%, 62%) !default;
-$tertiary: hsl(235, 100%, 66%) !default;
-$success: hsl(144, 65%, 50%) !default;
-$warning: hsl(46, 100%, 52%) !default;
-$danger: hsl(352, 81%, 59%) !default;
-$light: hsl(225, 22%, 96%) !default;
+$secondary: hsl(199, 100%, 52%) !default;
+$tertiary: hsl(235, 82%, 66%) !default;
+$success: hsl(144, 72%, 53%) !default;
+$warning: hsl(46, 80%, 52%) !default;
+$danger: hsl(352, 75%, 53%) !default;
+$light: hsl(225, 12%, 96%) !default;
 $medium: hsl(228, 5%, 59%) !default;
-$dark: hsl(220, 8%, 15%) !default;
+$dark: hsl(220, 8%, 12%) !default;
 
 $color-names: (
 	danger,

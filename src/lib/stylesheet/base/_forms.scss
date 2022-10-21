@@ -1,0 +1,16 @@
+@use "./colors" as *;
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="button"]) {
+    background-color: $dark;
+    border: 1px rgba(87, 87, 87, 0.219) solid;
+    padding: 1rem;
+    line-height: 1.4;
+    min-width: 18em;
+    border-radius: 8px;
+    &:focus-visible,&:focus-within {
+
+        border: 1px rgba(87, 87, 87, 0.819) solid;
+    }
+    font-family: "InterVariable";
+    letter-spacing: -0.02em;
+}

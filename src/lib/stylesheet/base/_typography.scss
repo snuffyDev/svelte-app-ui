@@ -20,27 +20,28 @@ h6,
 .subheading {
 	color: var(--app-text-base);
 	font-family: "InterVariable", sans-serif;
-
+	letter-spacing: -0.03em;
 	line-height: 1.2;
-	font-weight: 500;
-	margin: 0.5em 0 1rem;
+	font-weight: 600;
+	margin: 1em 0 0.5em;
 }
 
 h1,
 .h1 {
-	font-size: 2.488rem;
+	margin-top: 0;
+	font-size: 3.28em;
 	font-weight: 700;
-	letter-spacing: -0.03em;
 }
 
 h2,
 .h2 {
-	font-size: 2.174rem;
+	font-size: 2.174em;
 }
 
 h3,
 .h3 {
 	font-size: 1.728em;
+	font-weight: 500;
 }
 
 h4,
@@ -59,5 +60,5 @@ h6,
 }
 
 a {
-	color: color.adjust(colors.$primary, $saturation: -20%);
+	color: color.adjust(colors.$primary, $saturation: 15%, $lightness: 3%);
 }

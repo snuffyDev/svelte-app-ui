@@ -6,6 +6,7 @@
 	export let expand: "block" | "full" | undefined = undefined;
 	export let fill: "clear" | "outline" | "solid" | "default" = "solid";
 	export let color: UIBaseColor = "dark";
+	export let pill = false;
 	export let disabled = false;
 	export let href = "";
 
@@ -39,10 +40,10 @@
 	} as const;
 </script>
 
-{#if href.length !== 0}
-	<a
-		{href}
+<svelte:element this={href.length ? 'a' : 'button'}
+		href={href.length ? href : undefined}
 		class:expand
+		class:pill
 		{color}
 		on:blur
 		on:focus
@@ -51,22 +52,7 @@
 		class="{buttonSizes[size]} {buttonFill[fill]} {buttonColor[color]}"
 	>
 		<slot>Missing Content</slot>
-	</a>
-{:else}
-	<button
-		{disabled}
-		{type}
-		on:click
-		on:blur
-		on:focus
-		{color}
-		class:expand
-		class:strong
-		class="{buttonSizes[size]} {buttonFill[fill]} {buttonColor[color]}"
-	>
-		<slot>Missing Content</slot>
-	</button>
-{/if}
+</svelte:element>
 
 <style src="./index.scss" lang="scss">
 </style>

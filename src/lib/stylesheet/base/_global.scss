@@ -48,12 +48,8 @@ body {
 		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-#app {
-	position: absolute;
-	inset: 0;
-	contain: paint;
-	isolation: isolate;
-	min-height: inherit;
-	max-height: 100%;
-	overflow-y: auto;
+
+[hidden] {
+	visibility: hidden !important;
+	display: none !important;
 }

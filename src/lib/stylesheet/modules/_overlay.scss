@@ -1,0 +1,13 @@
+@use "../base/mixins/elevation" as *;
+@use "../base/colors" as *;
+@use "sass:math";
+$alpha: 0 !default;
+@each $idx, $item in $elevation-overlay {
+    .overlay-#{$idx} {
+        $color: math.clamp(-1, math.tan($item) * 2.5, 1);
+        @debug $idx, $color;
+        $alpha: -1 + $color;
+        background-color: #{adjust-color($dark, $alpha: $alpha)};
+
+    }
+}

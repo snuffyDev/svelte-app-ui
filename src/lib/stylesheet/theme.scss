@@ -5,7 +5,7 @@
 	@return map-get(colors.$color-map, $color, $variation);
 }
 
-$app-dark: #101014;
+$app-dark: hsl(240, 14%, 4.5%);
 $app-light: hsl(0, 0%, 95%);
 
 $dark-theme: (

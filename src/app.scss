@@ -13,10 +13,9 @@
 :root {
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-	font-size: 16px;
-	line-height: 1.5;
+	font-size: .625em;
 	font-weight: 400;
-
+	tab-size: 4;
 	color-scheme: light dark;
 	color: var(--app-text-base);
 	background-color: var(--app-background-base);
@@ -27,11 +26,26 @@
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-tap-highlight-color: transparent;
 	-webkit-text-size-adjust: 100%;
+	--top-bar-height: 3.5em;
+	--side-bar-width: 62vmin;
+	@media screen and (min-width: 720px) and (max-width: 1298px) {
+		--top-bar-height: 4.2em;
+		--side-bar-width: 5em;
+	}
+	@media screen and (min-width: 1298.5px) {
+		--side-bar-width: 19em;
+	}
 }
-
+html, body {
+	line-height: 1.4;
+	min-height: 100vh;
+}
 body {
 	margin: 0;
 
+	position: absolute;
+	inset:0;
+	font-size: 1.6rem;
 	min-height: 100vh;
 }
 
@@ -40,8 +54,27 @@ body {
 }
 
 #app {
-	max-width: 1280px;
-	margin: 0 auto;
-	padding: 2rem;
 	// text-align: center;
+	display:flex;
+	position:fixed;
+	inset: 0;
+	overflow: hidden;
+}
+
+
+#app {
+	position: absolute;
+	inset: 0;
+	contain: paint;
+	isolation: isolate;
+	min-height: inherit;
+	// max-height: 100%;
+	overflow-y: auto;
+}
+
+main {
+	position: relative;
+	padding: 1.5vw 0;
+	max-width: 95em;
+	margin:0 auto;
 }

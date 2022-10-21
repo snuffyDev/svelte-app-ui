@@ -1,0 +1,17 @@
+nav {
+    height: var(--top-bar-height);
+    z-index: 10;
+    border-bottom: #272727 1px solid;
+    display: grid;
+    grid-template-columns: .2fr 3fr .4fr;
+    position: absolute;
+    justify-items: center;
+    background-color: var(--app-background-base);
+    top: 0;
+    left: 0;
+    right: 0;
+    align-items: center;
+    padding: 0.2em 0;
+}
+
+

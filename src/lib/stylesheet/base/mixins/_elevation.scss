@@ -85,8 +85,7 @@ $ambient-shadow-map: (
 
 // If you don't want all the classes can also just include this mixin and provide an elevation value in any class
 @mixin elevation($elevation) {
-	box-shadow: map-get($key-shadow-umbra-map, $elevation),
-		map-get($key-shadow-penumbra-map, $elevation),
+	box-shadow: map-get($key-shadow-umbra-map, $elevation), map-get($key-shadow-penumbra-map, $elevation),
 		map-get($ambient-shadow-map, $elevation);
 }
 
@@ -96,3 +95,16 @@ $ambient-shadow-map: (
 		@include elevation($elevation);
 	}
 }
+
+$elevation-overlay: (
+	0: 0,
+	1: 0.05,
+	2: 0.075,
+	3: 0.15,
+	4: 0.185,
+	6: 0.2,
+	8: 0.2125,
+	12: 0.25,
+	16: 0.3125,
+	24: 1,
+) !default;

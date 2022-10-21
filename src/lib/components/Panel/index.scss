@@ -1,0 +1,15 @@
+@use "sass:math";
+
+:where(.rounded) {
+    border-radius: 1rem;
+}
+
+
+:where(.panel) {
+    display:flex;
+    flex-basis: auto;
+    flex-shrink: 0;
+    &.column {
+        flex-direction: column;
+    }
+}

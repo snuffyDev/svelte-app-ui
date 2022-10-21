@@ -1,9 +1,9 @@
-@function shade-color($color, $amount: 12%) {
+@function shade-color($color, $amount: 14%) {
 	@return #{mix(#000, $color, $amount)};
 }
 
 @function tint-color($color) {
-	@return #{mix(#fff, $color, 14%)};
+	@return #{mix(#fff, $color, 15%)};
 }
 
 @function current-color($variation, $type, $alpha: null) {
