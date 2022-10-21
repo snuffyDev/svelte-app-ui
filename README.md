@@ -6,4 +6,4 @@ Demo: https://app-ui-lib.vercel.app
 
 ### Screenshot
 
-<img src="/.repo/screenshot.jpeg" width="1280" height="720" />
+<img src="/.repo/screenshot.jpeg" width="1280" />
