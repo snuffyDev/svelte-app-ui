@@ -2,6 +2,14 @@
 	@return #{mix(#000, $color, $amount)};
 }
 
+@function get-color($color, $variation) {
+	@return map-get(colors.$color-map, $color, $variation);
+}
+
+@function mix-color($base, $contrast, $amount: 10%) {
+	@return mix($contrast, $base, $amount);
+}
+
 @function tint-color($color) {
 	@return #{mix(#fff, $color, 15%)};
 }

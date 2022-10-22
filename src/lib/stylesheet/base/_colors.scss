@@ -28,53 +28,68 @@ $color-map: (
 		contrast: #fff,
 		shade: shade-color($primary),
 		tint: tint-color($primary),
+		darker: mix-color($dark, #fff),
+
 	),
 	secondary: (
 		base: $secondary,
 		contrast: #fff,
 		shade: shade-color($secondary),
 		tint: tint-color($secondary),
+		darker: mix-color($dark, #fff),
+
 	),
 	tertiary: (
 		base: $tertiary,
 		contrast: #fff,
 		shade: shade-color($tertiary),
 		tint: tint-color($tertiary),
+		darker: mix-color($dark, #fff),
+
 	),
 	success: (
 		base: $success,
 		contrast: #fff,
 		shade: shade-color($success),
 		tint: tint-color($success),
+		darker: mix-color($dark, #fff),
+
 	),
 	warning: (
 		base: $warning,
 		contrast: #000,
 		shade: shade-color($warning),
 		tint: tint-color($warning),
+		darker: mix-color($dark, #fff),
+
 	),
 	danger: (
 		base: $danger,
 		contrast: #fff,
 		shade: shade-color($danger),
 		tint: tint-color($danger),
+		darker: mix-color($dark, #fff),
 	),
 	light: (
 		base: $light,
 		contrast: #000,
 		shade: shade-color($light),
 		tint: shade-color($light),
+		darker: mix-color($dark, #fff),
 	),
 	medium: (
 		base: $medium,
 		contrast: #fff,
 		shade: shade-color($medium),
 		tint: tint-color($medium),
+		darker: mix-color($dark, #fff),
 	),
 	dark: (
 		base: $dark,
 		contrast: #fff,
 		shade: shade-color($dark),
 		tint: tint-color($dark),
+		darker: mix-color($dark, #fff),
+
 	),
 );

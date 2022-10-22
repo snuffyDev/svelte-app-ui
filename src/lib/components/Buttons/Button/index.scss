@@ -23,9 +23,11 @@ $hover: #fff !default;
 
 			--c-primary-base: #{map-get($color-map, $color, "base")};
 
+			--c-primary-darker: #{map-get($color-map, $color, "darker")};
+
 			--c-primary-contrast: #{map-get($color-map, $color, "contrast")};
 
-			--c-primary-shade: #{map-get($color-map, $color, "shade")}
+			--c-primary-shade: #{map-get($color-map, $color, "shade")};
 		}
 	}
 }
@@ -37,6 +39,7 @@ $hover: #fff !default;
 		--bg-hover: #{color.adjust($hover, $alpha: -0.6%)};
 		--bg-active: #{color.adjust($hover, $alpha: -0.7%)};
 		--bg-active-opacity: 0.3;
+		--bg-hover-opacity: 0.2;
 		--bg-focus-opacity: 0.1;
 		--text-color: var(--c-primary-shade);
 		--text-active-color: var(--c-primary-tint);
@@ -54,8 +57,8 @@ $hover: #fff !default;
 		--bg-focused: var(--c-primary-base);
 		--bg-color: transparent;
 		--bg-hover: var(--c-primary-shade);
-		--bg-focus-opacity: 0.1;
-		--bg-hover-opacity: 0.05;
+		--bg-focus-opacity: 0.15;
+		--bg-hover-opacity: 0.075;
 		--text-color: var(--c-primary-shade);
 		--text-hover-color: var(--c-primary-base);
 		--text-active-color: var(--c-primary-tint);
@@ -72,7 +75,7 @@ $hover: #fff !default;
 
 		--bg-focus-opacity: 1;
 		--bg-active-opacity: 1;
-		--bg-hover-opacity: 0.5;
+		--bg-hover-opacity: 0.25;
 	}
 }
 
@@ -83,8 +86,6 @@ $hover: #fff !default;
 :where(.expand) {
 	width: 100%;
 }
-
-
 
 :where([color="light"]) {
 	--text-color: var(--c-primary-contrast);
@@ -100,7 +101,7 @@ $hover: #fff !default;
 
 	color: var(--text-color, initial);
 	touch-action: manipulation;
-	transition: 120ms 32ms cubic-bezier(.6, .0, 1, 1);
+	transition: 400ms 0ms ease-out;
 	text-shadow: 0px -0.2px 1px hsl(0deg 0% 0% / 20%);
 	transition-property: color, background-color, opacity;
 	font-family: "InterVariable";
@@ -122,7 +123,6 @@ $hover: #fff !default;
 	-webkit-user-select: none;
 
 	&::after {
-
 		content: "";
 		position: absolute;
 		user-select: none;
@@ -131,18 +131,18 @@ $hover: #fff !default;
 		border-radius: inherit;
 		pointer-events: none;
 		user-select: none;
-		z-index: -1;
-		background-color: var(--bg-hover, transparent);
+		z-index: 1;
+		background-color: var(--c-primary-contrast, transparent);
 		opacity: 0;
 	}
 	@media (hover: hover) {
 		&:hover:not(:active) {
 			// color: #{mix(map-get($color-map, "primary", "contrast"), rgba(0, 0, 0, 0.759), 5%)};
 			&::after {
-				transition-delay: 0ms !important;
+				content: "";
 
-				opacity: var(--bg-hover-opacity, 0.1);
-				background-color: var(--bg-hover, transparent);
+				opacity: var(--bg-hover-opacity, 0.01);
+				background-color: var(--bg-active, transparent);
 			}
 		}
 	}
@@ -152,14 +152,17 @@ $hover: #fff !default;
 		transition-delay: 0ms !important;
 		color: var(--text-active-color, initial);
 		text-shadow: 0px -0.2px 5px hsl(0deg 0% 0% / 20%);
-
+		opacity: var(--bg-active-opacity);
+		background-color: var(--bg-active, transparent);
 	}
 
 	&:hover:active::after,
 	&:active::after {
 		transition-duration: 0ms !important;
+		transition-duration: 0ms !important;
+		box-shadow: 0px -0.5px 6px 0px rgba(0, 0, 0, 0.068) inset;
+		background-color: var(--bg-hover, transparent);
 
-		background-color: var(--bg-active, transparent);
 		color: #{invert(
 				adjust-color(
 					map-get($color-map, "primary", "contrast"),
